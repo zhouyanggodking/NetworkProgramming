@@ -39,8 +39,8 @@ int main(int argc, char** argv)
 	const uint32_t BUF_LEN = 20;
 	char buffer[BUF_LEN];
 	int total_bytes=0, recv_bytes = 0;
-	int msg_len = sizeof(argv[3]);
-	if(send(sock_client, buffer, BUF_LEN -1, 0) != msg_len)
+	int msg_len = strlen(argv[3]);
+	if(send(sock_client, argv[3], msg_len, 0) != msg_len)
 		die_with_error("send() failed");
 
 	//receive
